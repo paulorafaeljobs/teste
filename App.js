@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const port = 3000
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -17,6 +16,5 @@ app.post('/cars/', (req, res) => {
   return res.json(req.body.name);
 });
 
-app.listen(port, () => {
-  console.log(`Porta: ${port}`)
-})
+const port = process.env.PORT || 9001;
+app.listen(port, () => console.log(`Listening to port ${port}`));
